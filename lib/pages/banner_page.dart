@@ -4,14 +4,35 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 class BannerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Center(
-            child: _buildBannerAd(),
-          ),
-        ],
-      ),
+    return Stack(
+      children: <Widget>[
+        _buildAdsList(),
+        Container(
+          child: _buildBannerAd(),
+          alignment: Alignment.topCenter,
+        ),
+        Container(
+          child: _buildBannerAd(),
+          alignment: Alignment.bottomCenter,
+        )
+      ],
+    );
+  }
+
+  Widget _buildAdsList() {
+    const itemCount = 100;
+    return ListView.separated(
+      itemBuilder: (context, index) {
+        if (index % 10 == 0) {
+          return _buildBannerAd();
+        } else {
+          return ListTile(
+            title: Text("list tile"),
+          );
+        }
+      },
+      separatorBuilder: (context, index) => Divider(),
+      itemCount: itemCount,
     );
   }
 
