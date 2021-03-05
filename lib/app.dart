@@ -11,6 +11,9 @@ class App extends ConsumerWidget {
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
       home: Scaffold(
+        appBar: AppBar(
+          title: Text("Googleads mobile SDK sample"),
+        ),
         body: IndexedStack(
           children: pages,
           index: index,
@@ -20,10 +23,6 @@ class App extends ConsumerWidget {
           onTap: context.read(pageProvider).setIndex,
           currentIndex: index,
           type: BottomNavigationBarType.fixed,
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => print('pressed'),
         ),
       ),
     );
