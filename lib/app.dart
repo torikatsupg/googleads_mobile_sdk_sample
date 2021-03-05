@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:googleads_mobile_sdk_sample/pages/banner_page.dart';
+import 'package:googleads_mobile_sdk_sample/pages/interstial_page.dart';
+import 'package:googleads_mobile_sdk_sample/pages/native_page.dart';
+import 'package:googleads_mobile_sdk_sample/pages/rewarded_page.dart';
 import 'package:riverpod/riverpod.dart';
 
 class App extends ConsumerWidget {
@@ -30,21 +34,19 @@ class App extends ConsumerWidget {
 
   List<Widget> _buildPages() {
     return <Widget>[
-      Center(child: Text("1")),
-      Center(child: Text("2")),
-      Center(child: Text("3")),
-      Center(child: Text("4")),
-      Center(child: Text("5")),
+      BannerPage(),
+      InterstitialPage(),
+      NativePage(),
+      RewardedPage(),
     ];
   }
 
   List<BottomNavigationBarItem> _buildBottomNavigationBarItem() {
     return <BottomNavigationBarItem>[
-      BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-      BottomNavigationBarItem(icon: Icon(Icons.add), label: "add"),
-      BottomNavigationBarItem(icon: Icon(Icons.list), label: "list"),
-      BottomNavigationBarItem(icon: Icon(Icons.history), label: "history"),
-      BottomNavigationBarItem(icon: Icon(Icons.settings), label: "settings"),
+      BottomNavigationBarItem(icon: Icon(Icons.home), label: "banner"),
+      BottomNavigationBarItem(icon: Icon(Icons.add), label: "interstitial"),
+      BottomNavigationBarItem(icon: Icon(Icons.list), label: "native"),
+      BottomNavigationBarItem(icon: Icon(Icons.history), label: "rewarded"),
     ];
   }
 }
